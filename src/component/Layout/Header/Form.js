@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 const  Form = ()=>{
+    const [select,setSelect] = useState("1")
     const [data,setData] = useState({
         departure:"partenza",
         arrive:"arriva",
@@ -8,6 +9,8 @@ const  Form = ()=>{
     
     const submit = (e)=>{
         e.preventDefault()
+        console.log(select)
+        setData(...data, { passenger : select} )
         console.log(data.departure,data.arrive,data.passengers)
     }
     return(
@@ -25,11 +28,15 @@ const  Form = ()=>{
                         type="text" 
                         name="arrive"
                         onChange={(e)=>setData({...data, arrive: e.target.value})}/>
-                    <input placeholder="Passeggeri" 
-                        className="w-[75%] m-1" 
-                        type="text" 
-                        name="passenger" 
-                        onChange={(e)=>setData({...data,passenger: e.target.value})}/>
+                    <select placeholder="Passeggeri" 
+                        className="w-[75%] m-1"
+                        value={select}
+                        name="passenger"
+                        onChange={(e)=>setSelect(e.target.value)}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </div>        
                 <button type="submit">SUBMIT</button>
             </form>
