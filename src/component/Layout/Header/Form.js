@@ -1,14 +1,15 @@
+// https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83
 import React, { useState } from "react"
 import logo from '../../../asset/logo_opacity0.png'
 const  Form = ()=>{
-    const [data,setData] = useState({
-        departure:"partenza",
-        arrive:"arriva",
-        passengers:"1"})
+    const [data,setData] = useState({})
     
     const submit = (e)=>{
         e.preventDefault()
         console.log(data.departure,data.arrive,data.passengers,data.backData,data.departData)
+        fetch('https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83')
+            .then((response) => response.json())
+            .then((data) => (console.log(data)))
     }
     return(
         <>
@@ -17,16 +18,22 @@ const  Form = ()=>{
                 <div>Dove vuoi andare?</div>
                 <div>
                     <div className="flex flex-col justify-center items-center md:flex-row">
-                        <input placeholder="Partenza" 
+                        <select placeholder="Partenza" 
                             className="w-[75%] m-1" 
                             type="text" 
                             name="departure" 
-                            onChange={(e)=>setData({...data, departure: e.target.value})}/>
-                        <input placeholder="Arrivo"
+                            onChange={(e)=>setData({...data, departure: e.target.value})}>
+                            <option value="BGY">Milano Bergamo</option>
+                            <option value="BRI">Bari Palese</option>
+                        </select>
+                        <select placeholder="Arrivo"
                             className="w-[75%] m-1" 
                             type="text" 
                             name="arrive"
-                            onChange={(e)=>setData({...data, arrive: e.target.value})}/>
+                            onChange={(e)=>setData({...data, arrive: e.target.value})}>
+                            <option value="BGY">Milano Bergamo</option>
+                            <option value="BRI">Bari Palese</option>                            
+                        </select>
                         <select placeholder="Passeggeri" 
                             className="w-[75%] m-1"
                             value={data.passengers}
