@@ -4,7 +4,6 @@ const Body = (props)=>{
     const {dati} = props
     return(
         <div>
-            mimimimimimimi
             {dati}
         </div>
     )
