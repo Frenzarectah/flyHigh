@@ -4,19 +4,9 @@ import logo from '../../../asset/logo_opacity0.png'
 
 const  Form = (props)=>{
     const [data,setData] = useState({})
-    const [result,setResult] = useState({})
     const submit = (e)=>{
-        const h1 = document.createElement("ul")
         console.log(data.departure,data.arrive,data.passengers,data.backData,data.departData)
-        fetch('https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83')
-            .then((response) => response.json())
-            .then((data) =>{ const daticont = document.createTextNode(data.response[0]["flight_iata"])
-                h1.appendChild(daticont)
-                console.log(daticont)
-                props.handlerAPI(daticont)
-                document.body.appendChild(h1)
-                setResult(...result, daticont)
-            })
+        
         e.preventDefault()
     }
     return(
@@ -73,3 +63,14 @@ const  Form = (props)=>{
 }
 
 export default Form
+
+
+/** 
+fetch('https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83')
+            .then((response) => response.json())
+            .then((data) =>{ 
+                console.log(data.response[0])
+                setResult(...result, data.response[0])
+                props.handlerAPI(data.response[0])
+            })
+*/
