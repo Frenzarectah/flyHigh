@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import logo from '../../../asset/logo_opacity0.png'
 
+
 const  Form = (props)=>{
     const [data,setData] = useState({})
     const submit = (e)=>{
