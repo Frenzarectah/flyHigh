@@ -1,38 +1,24 @@
-import React, { createContext } from "react"
-import { useReducer } from "react"
 
-export const contestoReducer = createContext()
-const initState = {
-    count:1,
-    name:"ciolammoocc"
+export const initState = {
+    name:"",
+    departure:"",
+    arrival:"",
+    depart_date:"",
+    arrive_date:""
 }
-
-const reducerTry = (state,action)=>{
+export const flightReducer = (state,action) =>{
     switch(action.type){
-    case "ADDING":
-        console.log("add one to counter")
-        return {...state,
-            count:state.count+1}
-    case "REMOVING":
-        console.log("add one to counter")
-        return{...state,
-            count: state.count-1}
+    case "CHANGE_NAME":
+        console.log("changing name...")
+        return{...state,name: state.name="NOME CAMBIATO"}    
+    case "CHANGE_DEPART":
+        console.log("changing depart airport")
+        return{...state,departure: state.departure="MALPENSA"}
     default:
-        console.log("doing nothing")
-        return{count: ""}
+        console.log("no action")
+        return{...state,nome: state.name="DEFAULT"}
+
     }
 }
-const useReduce = ()=>{
-    const [state,dispatch] = useReducer(reducerTry,initState)
-    return(
-        <>
-            <contestoReducer.Provider value={state}>
-                <button onClick={() => dispatch({type: "ADDING"})}>ADD ONE</button>
-                Count: {state.count}
-                Name: {state.name}
-                <button onClick={() => dispatch({type: "REMOVING"})}>DEL ONE</button>
-            </contestoReducer.Provider>
-        </>
-    )
-}
-export default useReduce
+
+

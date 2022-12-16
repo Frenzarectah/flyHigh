@@ -7,7 +7,7 @@ const  Form = (props)=>{
     const [data,setData] = useState({})
     const submit = (e)=>{
         console.log(data.departure,data.arrive,data.passengers,data.backData,data.departData)
-        
+                
         e.preventDefault()
     }
     return(
