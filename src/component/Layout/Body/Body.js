@@ -1,11 +1,12 @@
 import React from "react"
+import Reduce from "../Header/Reduce"
 
 const Body = (props)=>{
-    const {dati} = props
     return(
-        <div>
-            {dati}
-        </div>
+        <>
+            {props.name}
+            <Reduce/>
+        </>
     )
 }
 
