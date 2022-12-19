@@ -1,28 +1,28 @@
 // https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import logo from '../../../asset/logo_opacity0.png'
-import { apiReq } from "../apiReq"
+import { globale } from "../Layout"
 
 const  Form = (props)=>{
     const [data,setData] = useState({})
+    const {state,dispatch} = useContext(globale)
     const submit = (e)=>{
         e.preventDefault()
         //console.log(data.departure,data.arrive,data.passengers,data.backData,data.departData)
         console.log(data)
-        apiReq(data)
     }
     return(
         <>
             <form className="flex flex-col justify-center items-center h-full md:h-[75%]" onSubmit={submit}>
                 <img className="absolute top-2 right-2" alt="main logo" src={logo}/>
-                <div>Dove vuoi andare?</div>
+                <div>Dove vuoi andare?{state.name}</div>
                 <div>
                     <div className="flex flex-col justify-center items-center md:flex-row">
                         <select placeholder="Partenza" 
                             className="w-[75%] m-1" 
                             type="text" 
                             name="departure" 
-                            onChange={(e)=>setData({...data, departure: e.target.value})}>
+                            onChange={()=>dispatch({type:"CHANGE_NAME"})}>
                             <option value="BGY">Milano Bergamo</option>
                             <option value="BRI">Bari Palese</option>
                         </select>
@@ -59,8 +59,8 @@ const  Form = (props)=>{
                 </div>        
                 <button className="w-20 h-7 bg-[#008dd5] radius rounded text-white" type="submit">Let's Fly!</button>
             </form>
-            
-        </>
+        </>    
+        
     )
 }
 
