@@ -1,14 +1,15 @@
 // https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83
 import React, { useState } from "react"
 import logo from '../../../asset/logo_opacity0.png'
-
+import { apiReq } from "../apiReq"
 
 const  Form = (props)=>{
     const [data,setData] = useState({})
     const submit = (e)=>{
-        console.log(data.departure,data.arrive,data.passengers,data.backData,data.departData)
-                
         e.preventDefault()
+        //console.log(data.departure,data.arrive,data.passengers,data.backData,data.departData)
+        console.log(data)
+        apiReq(data)
     }
     return(
         <>
