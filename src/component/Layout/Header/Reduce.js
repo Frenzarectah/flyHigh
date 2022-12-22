@@ -8,12 +8,12 @@ export const initState = {
 }
 export const flightReducer = (state,action) =>{
     switch(action.type){
-    case "CHANGE_NAME":
+    case "CHANGE_FORM":
         console.log("changing name...")
-        return{...state,name: state.name="NOME CAMBIATO"}    
+        return{...state,name: action.value}    
     case "CHANGE_DEPART":
         console.log("changing depart airport")
-        return{...state,departure: state.departure="MALPENSA"}
+        return{...state,departure: action.value}
     default:
         console.log("no action")
         return{...state,nome: state.name="DEFAULT"}

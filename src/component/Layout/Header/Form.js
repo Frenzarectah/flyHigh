@@ -22,7 +22,7 @@ const  Form = (props)=>{
                             className="w-[75%] m-1" 
                             type="text" 
                             name="departure" 
-                            onChange={()=>dispatch({type:"CHANGE_NAME"})}>
+                            onChange={(e)=>dispatch({type:"CHANGE_FORM",value: e.target.value})}>
                             <option value="BGY">Milano Bergamo</option>
                             <option value="BRI">Bari Palese</option>
                         </select>
