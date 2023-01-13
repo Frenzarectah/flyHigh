@@ -13,7 +13,7 @@ const  Form = (props)=>{
         <>
             <form className="flex flex-col justify-center items-center h-full md:h-[75%]" onSubmit={submit}>
                 <img className="absolute top-2 right-2" alt="main logo" src={logo}/>
-                <div>Dove vuoi andare?{state.arrival}</div>
+                <div>Dove vuoi andare?{state.arrive}</div>
                 <div>
                     <div className="flex flex-col justify-center items-center md:flex-row">
                         <select placeholder="Partenza" 

@@ -1,8 +1,8 @@
 
 export const initState = {
-    name:"",
-    departure:"",
-    arrival:"",
+    departure:"partenza",
+    arrive:"arrivo",
+    passenger:"2",
     depart_date:"",
     arrive_date:""
 }
@@ -10,7 +10,7 @@ export const flightReducer = (state,action) =>{
     switch(action.type){
     case "CHANGE_ARRIVE":
         console.log("changing arrive airport")
-        return{...state,arrival: action.value}    
+        return{...state,arrive: action.value}    
     case "CHANGE_DEPART":
         console.log("changing depart airport")
         return{...state,departure: action.value}
