@@ -13,8 +13,8 @@ const Layout = ()=>{
     return(
         <globale.Provider value={{state,dispatch}}>
             <div className="w-100 h-screen m-[10px]">
-                <Header name={state} />
-                <Body name={state}/>
+                <Header form={state} />
+                <Body form={state}/>
             </div>
         </globale.Provider>
     )

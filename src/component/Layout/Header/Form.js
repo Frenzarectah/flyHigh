@@ -20,7 +20,7 @@ const  Form = (props)=>{
                             className="w-[75%] m-1" 
                             type="text" 
                             name="departure" 
-                            onSelect={(e)=>dispatch({
+                            onChange={(e)=>dispatch({
                                 type:"CHANGE_DEPART",
                                 field:e.target.name, 
                                 value: e.target.value})}>
@@ -31,14 +31,20 @@ const  Form = (props)=>{
                             className="w-[75%] m-1" 
                             type="text" 
                             name="arrive"
-                            onChange={(e)=>dispatch({type:"CHANGE_ARRIVE",value: e.target.value})}>
+                            onChange={(e)=>dispatch({
+                                type:"CHANGE_ARRIVE",
+                                field: e.target.name,
+                                value: e.target.value})}>
                             <option value="BGY">Milano Bergamo</option>
                             <option value="BRI">Bari Palese</option>                            
                         </select>
                         <select placeholder="Passeggeri" 
                             className="w-[75%] m-1"
                             name="passenger"
-                            onChange={(e)=>dispatch({type:"CHANGE_PASSENGER", value: e.target.value})}>
+                            onChange={(e)=>dispatch({
+                                type:"CHANGE_PASSENGER", 
+                                field: e.target.name,
+                                value: e.target.value})}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -48,13 +54,21 @@ const  Form = (props)=>{
                         <label htmlFor="andata">andata</label>
                         <input type="date"
                             id="andata"
+                            name="depart_date"
                             className="w-[75%] md:w-[30%] m-1" 
-                            onChange={(e)=>dispatch({type:"CHANGE_FORM", deparData: e.target.value})}/>
+                            onChange={(e)=>dispatch({
+                                type:"CHANGE_DEP_DATA", 
+                                field: e.target.name,
+                                value: e.target.value})}/>
                         <label htmlFor="ritorno">ritorno</label>
                         <input type="date"
                             id="ritorno"
+                            name="arrive_date"
                             className="w-[75%] md:w-[30%] m-1" 
-                            onChange={(e)=>dispatch({type:"CHANGE_FORM", arriveData: e.target.value})}/>
+                            onChange={(e)=>dispatch({
+                                type:"CHANGE_ARRIV_DATA", 
+                                field: e.target.name,
+                                value: e.target.value})}/>
                     </div>
                 </div>        
                 <button className="w-20 h-7 bg-[#008dd5] radius rounded text-white" type="submit">Let's Fly!</button>

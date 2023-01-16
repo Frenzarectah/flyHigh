@@ -7,7 +7,7 @@ const Header = (props) => {
             <div style={{"background":"rgba(39, 245, 238, 0.82)"}} className="w-1/2 h-1/2 bg-[#dcdcdc] rounded">
                 <Form/>
             </div>
-            {props.name.passenger}    
+            {props.form.passenger}    
         </header>
     )
 }
