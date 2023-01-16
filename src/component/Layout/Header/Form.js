@@ -20,34 +20,37 @@ const  Form = (props)=>{
                             className="w-[75%] m-1" 
                             type="text" 
                             name="departure" 
-                            onChange={(e)=>dispatch({type:"CHANGE_DEPART", departure: e.target.value})}>
+                            onSelect={(e)=>dispatch({
+                                type:"CHANGE_DEPART",
+                                field:e.target.name, 
+                                value: e.target.value})}>
                             <option value="BGY">Milano Bergamo</option>
                             <option value="BRI">Bari Palese</option>
                         </select>
                         <select placeholder="Arrivo"
                             className="w-[75%] m-1" 
                             type="text" 
-                            name="arrival"
-                            onChange={(e)=>dispatch({type:"CHANGE_ARRIVE", arrival: e.target.value})}>
+                            name="arrive"
+                            onChange={(e)=>dispatch({type:"CHANGE_ARRIVE",value: e.target.value})}>
                             <option value="BGY">Milano Bergamo</option>
                             <option value="BRI">Bari Palese</option>                            
                         </select>
                         <select placeholder="Passeggeri" 
                             className="w-[75%] m-1"
                             name="passenger"
-                            onChange={(e)=>dispatch({type:"CHANGE_PASSENGER", passenger: e.target.value})}>
+                            onChange={(e)=>dispatch({type:"CHANGE_PASSENGER", value: e.target.value})}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                     </div>
                     <div className="justify-center items-center flex flex-col md:flex-row">
-                        <label for="andata">andata</label>
+                        <label htmlFor="andata">andata</label>
                         <input type="date"
                             id="andata"
                             className="w-[75%] md:w-[30%] m-1" 
                             onChange={(e)=>dispatch({type:"CHANGE_FORM", deparData: e.target.value})}/>
-                        <label for="ritorno">ritorno</label>
+                        <label htmlFor="ritorno">ritorno</label>
                         <input type="date"
                             id="ritorno"
                             className="w-[75%] md:w-[30%] m-1" 
