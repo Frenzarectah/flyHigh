@@ -19,5 +19,4 @@ const Layout = ()=>{
         </globale.Provider>
     )
 }
-
 export default Layout

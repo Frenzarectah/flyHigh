@@ -1,9 +1,14 @@
 import React from "react"
-
-const Body = (props)=>{
+import { globale } from "../Layout"
+import { useContext } from "react"
+import { apiReq } from "../apiReq"
+const Body = ()=>{
+    const {state} = useContext(globale)
     return(
         <>
-            <div className="text-xl">{props.form.arrive}</div>  
+            <div className="text-xl">
+                {console.log(apiReq(state))}
+            </div>  
         </>
     )
 }

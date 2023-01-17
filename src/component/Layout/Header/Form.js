@@ -1,6 +1,7 @@
 // https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83
 import React, { useContext } from "react"
 import logo from '../../../asset/logo_opacity0.png'
+//import { apiReq } from "../apiReq"
 import { globale } from "../Layout"
 
 const  Form = (props)=>{
@@ -8,6 +9,7 @@ const  Form = (props)=>{
     const submit = (e)=>{
         e.preventDefault()
         console.log(state)
+        //apiReq(state)
     }
     return(
         <>
@@ -79,14 +81,3 @@ const  Form = (props)=>{
 }
 
 export default Form
-
-
-/** 
-fetch('https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83')
-            .then((response) => response.json())
-            .then((data) =>{ 
-                console.log(data.response[0])
-                setResult(...result, data.response[0])
-                props.handlerAPI(data.response[0])
-            })
-*/
