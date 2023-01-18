@@ -9,7 +9,6 @@ const  Form = (props)=>{
     const submit = (e)=>{
         e.preventDefault()
         console.log(state)
-        //apiReq(state)
     }
     return(
         <>

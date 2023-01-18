@@ -1,13 +1,14 @@
 import React from "react"
 import { globale } from "../Layout"
 import { useContext } from "react"
-import { apiReq } from "../apiReq"
+import ApiRenderer from "../ApiRenderer"
+
 const Body = ()=>{
     const {state} = useContext(globale)
     return(
         <>
             <div className="text-xl">
-                {console.log(apiReq(state))}
+                <ApiRenderer props={state} />
             </div>  
         </>
     )
