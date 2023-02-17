@@ -6,10 +6,8 @@ export const submitState = createContext()
 
 const  Form = (props)=>{
     const {state,dispatch} = useContext(globale)
-    //const [submitBtn,setsubmitBtn] = useState(false)
     const submit = (e)=>{
         e.preventDefault()
-        // setsubmitBtn(!submitBtn)
         dispatch({
             type:"SUBMIT_TOGGLE",
             field:"submitting",

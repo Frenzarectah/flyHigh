@@ -3,14 +3,12 @@ import { globale } from "../Layout"
 import { useContext } from "react"
 import ApiRenderer from "../ApiRenderer"
 
-
 const Body = ()=>{
     const {state} = useContext(globale)
     return(
         <>
             <div className="text-xl">
-                {state.submitting}
-                {state.submitting && <ApiRenderer props={state}/>}
+                {state.submitting===true && <ApiRenderer props={state}/>}
             </div>  
         </>
     )
