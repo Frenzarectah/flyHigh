@@ -1,23 +1,29 @@
 // https://airlabs.co/api/v9/schedules?dep_iata=BGY&arr_iata=BRI&api_key=b4137d54-e61a-46d8-967a-33ecc5836d83
-import React, { useContext } from "react"
-import logo from '../../../asset/logo_opacity0.png'
-//import { apiReq } from "../apiReq"
+import React, { createContext, useContext /* useState*/} from "react"
 import { globale } from "../Layout"
+
+export const submitState = createContext()
 
 const  Form = (props)=>{
     const {state,dispatch} = useContext(globale)
+    //const [submitBtn,setsubmitBtn] = useState(false)
     const submit = (e)=>{
         e.preventDefault()
+        // setsubmitBtn(!submitBtn)
+        dispatch({
+            type:"SUBMIT_TOGGLE",
+            field:"submitting",
+            value:true
+        })
         console.log(state)
     }
     return(
         <>
             <form className="flex flex-col justify-center items-center h-full md:h-[75%]" onSubmit={submit}>
-                <img className="absolute top-2 right-2" alt="main logo" src={logo}/>
                 <div>Dove vuoi andare?{state.arrive}</div>
                 <div>
                     <div className="flex flex-col justify-center items-center md:flex-row">
-                        <select placeholder="Partenza" 
+                        <select placeholder="partenza"
                             className="w-[75%] m-1" 
                             type="text" 
                             name="departure" 

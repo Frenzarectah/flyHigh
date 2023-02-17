@@ -4,7 +4,8 @@ export const initState = {
     arrive:"",
     passenger:"",
     depart_date:"",
-    arrive_date:""
+    arrive_date:"",
+    submitting:false
 }
 export const flightReducer = (state,action) =>{
     const {type,field,value} = action
@@ -23,6 +24,9 @@ export const flightReducer = (state,action) =>{
         return{...state,[field]: value}
     case "CHANGE_ARRIV_DATA":
         console.log("changing arrive data")
+        return{...state,[field]:value}
+    case "SUBMIT_TOGGLE":
+        console.log("leash/unleash submit")
         return{...state,[field]:value}
     default:
         console.log("no action")
